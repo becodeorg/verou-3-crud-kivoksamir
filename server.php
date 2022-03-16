@@ -13,10 +13,6 @@ $db = new mysqli ('localhost' , 'root' , '','CRUD') or die (mysqli_error($db));
 
 
 
-
-
-
- 
  if (isset($_POST['submit'])){
 	
 	 $db->query("INSERT INTO pokemon (name , type , weakness) VALUES ('$name' , '$type' , '$weakness')") ;
@@ -29,6 +25,8 @@ $db = new mysqli ('localhost' , 'root' , '','CRUD') or die (mysqli_error($db));
  	$db->query("DELETE FROM pokemon WHERE id=$id");
 
  };
+
+
 
 
 

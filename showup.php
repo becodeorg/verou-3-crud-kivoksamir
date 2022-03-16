@@ -40,7 +40,7 @@
 				</td>
 
 				<td>
-					<a href="showup.php?delete = <?php echo $row['id'];?>">delete</a>
+					<a href="showup.php?delete= <?php echo $row['id'];?>">delete</a>
 				</td>
 			</tr>
 
