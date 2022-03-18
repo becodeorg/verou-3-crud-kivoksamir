@@ -15,12 +15,12 @@ $result = $db->query("SELECT * FROM pokemon") or die($db->error);
  if (isset($_POST['submit'])){
 
 	 $db->query("INSERT INTO pokemon (name , type , weakness) 
-	 VALUES ('$name' , '$type' , '$weakness')") ;
+	 VALUES ('$name' , '$type' , '$weakness')")or die (mysqli_error($db)); ;
 
 		$_SESSION['message'] = "pokemon has geen saved";
 		$_SESSION['msg_type']="success";
 		
-		header('location:showup.php');
+		
 
  };
 

@@ -1,5 +1,16 @@
 <?php  include_once "server.php";?>
 
+    <?php if(isset($_SESSION['message'])): ?>
+    <div class="alert alert-<?=$_SESSION['msg_type']?>">
+    <?php
+    echo $_SESSION['message'];
+    unset($_SESSION['message']);
+    ?>
+    </div>
+    <?php endif ?>
+
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -16,7 +27,7 @@
 
 
   <div class="d-flex justify-content-center">
-	<form action = "server.php"  method = "POST">
+	<form action = "index.php"  method = "POST">
 
   
 	<label> pokemon name :</label>
@@ -31,6 +42,50 @@
   
 
 	<button class="btn btn-primary" type="submit" name="submit">submi</button> 
+
+
+
+
+  <?php
+	$db= new mysqli('localhost' , 'root' , '' , 'CRUD') or die (mysqli_error($db));
+	$result = $db->query("SELECT * FROM pokemon") or die($db->error); 
+?>
+
+<div class="container">
+	<table class="table">
+		
+		<thead>
+			<tr>
+				<th>name</th>
+				<th>type</th>
+				<th>weakness</th>
+				<th>operations</th>
+			</tr>
+		</thead>
+
+
+		<?php while($row =$result->fetch_assoc()): ?>  
+
+			<tr>
+				<td><?php echo $row["name"];?></td>
+				<td><?php echo $row["type"];?></td>
+				<td><?php echo $row["weakness"];?></td>
+
+				<td>
+					<button><a href="index.php?edit = <?php echo $row['id'];?>">edit</a></button>
+				</td>
+
+				<td>
+					<button><a href="index.php?delete= <?php echo $row['id'];?>">delete</a></button>
+				</td>
+				
+			</tr>
+
+		<?php endwhile; ?>
+
+
+	</table>
+		</div>
 
 	
 		
