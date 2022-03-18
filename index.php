@@ -20,14 +20,14 @@
 
   
 	<label> pokemon name :</label>
-	<input type="text" name="name">
+	<input type="text" name="name" class = "form-control">
   
 
 	<label> type :</label>
-	<input type="text" name="type">
+	<input type="text" name="type" class="form-control">
   
 	<label> Weakness </label>
-	<input type="text" name="weakness">
+	<input type="text" name="weakness" class="form-control">
   
 
 	<button class="btn btn-primary" type="submit" name="submit">submi</button> 
