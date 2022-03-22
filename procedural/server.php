@@ -31,6 +31,8 @@ $result = $db->query("SELECT * FROM pokemon") or die($db->error);
 
 	$_SESSION['message']="pokemon has been deleted";
 	$_SESSION['msg_type']="danger";
+	
+
 
  };
 
